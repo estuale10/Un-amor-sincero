@@ -1,92 +1,90 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>un pequeño mensaje</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<title>un pequeño mensaje</title>
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+<style>
 
-    .box {
-      max-width: 700px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
-      padding: 40px 25px;
-      border-radius: 24px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
-      animation: aparecer 1.2s ease;
-    }
+body{
+background:#0f172a;
+color:white;
+font-family:Arial;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+margin:0;
+}
 
-    h1 {
-      font-size: 2.2rem;
-      color: #ff7aa2;
-      margin-bottom: 20px;
-    }
+.box{
+background:rgba(255,255,255,0.06);
+padding:40px;
+border-radius:20px;
+max-width:600px;
+}
 
-    p {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #f8fafc;
-    }
+h1{
+color:#ff7aa2;
+font-size:36px;
+}
 
-    .emoji {
-      font-size: 1.5rem;
-      margin-top: 18px;
-    }
+p{
+font-size:20px;
+line-height:1.6;
+}
 
-    @keyframes aparecer {
-      from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
+.extra{
+margin-top:20px;
+display:none;
+font-size:18px;
+color:#ffd1dc;
+}
 
-    @media (max-width: 600px) {
-      .box {
-        padding: 30px 20px;
-      }
+button{
+margin-top:25px;
+padding:12px 20px;
+border:none;
+border-radius:20px;
+background:#ff7aa2;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
 
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      p {
-        font-size: 1.05rem;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="box">
-    <h1>hola 😊</h1>
-    <p>
-      no sé qué traerá el futuro,<br>
-      pero me gusta el presente<br>
-      cuando estoy hablando contigo.
-    </p>
-    <div class="emoji">💙✨</div>
-  </div>
+
+<div class="box">
+
+<h1>hola 😊</h1>
+
+<p>
+no sé si fue coincidencia o destino,<br>
+pero me alegra que hayas aparecido. ✨
+</p>
+
+<p>🌷🤍💫</p>
+
+<button onclick="mostrar()">toca aquí 💌</button>
+
+<div class="extra" id="mensaje">
+a veces las mejores personas llegan<br>
+cuando menos lo esperamos 🌸
+</div>
+
+</div>
+
+<script>
+
+function mostrar(){
+document.getElementById("mensaje").style.display="block";
+}
+
+</script>
+
 </body>
 </html>
