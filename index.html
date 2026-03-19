@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Un detalle 💫</title>
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      min-height:100vh;
+      background:#0f1b3d;
+      font-family:Arial, sans-serif;
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      padding:20px;
+    }
+
+    .box{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width:400px;
+      background:rgba(255,255,255,0.06);
+      border-radius:24px;
+      padding:28px 20px;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    .foto{
+      width:190px;
+      max-width:80%;
+      border-radius:20px;
+      margin-bottom:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    p{
+      line-height:1.7;
+      margin:10px 0;
+      font-size:1rem;
+    }
+
+    button{
+      margin-top:16px;
+      padding:12px 18px;
+      border:none;
+      border-radius:20px;
+      background:#7dd3fc;
+      color:#0f1b3d;
+      font-weight:bold;
+      cursor:pointer;
+      font-size:0.95rem;
+      box-shadow:0 8px 20px rgba(125,211,252,0.25);
+    }
+
+    .oculto{
+      display:none;
+    }
+
+    .firma{
+      margin-top:18px;
+      color:#cbd5e1;
+      font-size:0.95rem;
+      letter-spacing:1px;
+    }
+
+    .emoji{
+      position:fixed;
+      bottom:-50px;
+      font-size:22px;
+      animation:flotar linear forwards;
+      z-index:1;
+      pointer-events:none;
+    }
+
+    @keyframes flotar{
+      0%{
+        transform:translateY(0);
+        opacity:0.95;
+      }
+      100%{
+        transform:translateY(-110vh);
+        opacity:0;
+      }
+    }
+
+    @media (max-width:480px){
+      .box{
+        padding:24px 16px;
+      }
+
+      p{
+        font-size:0.95rem;
+      }
+
+      .foto{
+        width:170px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="box">
+    <img src="anime.png" class="foto" alt="foto anime">
+
+    <p>
+      no quiero perderte,<br>
+      pero tampoco quiero obligarte a que te quedes.
+    </p>
+
+    <button onclick="mostrarPaso2()">ver más</button>
+
+    <div id="paso2" class="oculto">
+      <p>
+        porque si algún día decides estar conmigo,<br>
+        quiero que sea porque te nace de verdad…<br>
+        no por costumbre, ni por miedo a irte.
+      </p>
+
+      <button onclick="mostrarPaso3()">toca aquí</button>
+    </div>
+
+    <div id="paso3" class="oculto">
+      <p>
+        yo no busco algo perfecto,<br>
+        solo algo sincero,<br>
+        donde podamos ser nosotros mismos<br>
+        sin tener que fingir nada.
+      </p>
+
+      <button onclick="mostrarPaso4()">seguir</button>
+    </div>
+
+    <div id="paso4" class="oculto">
+      <p>
+        porque al final,<br>
+        lo que vale la pena no se fuerza,<br>
+        no se ruega,<br>
+        ni se obliga…<br>
+        simplemente se da.
+      </p>
+
+      <button onclick="mostrarFinal()">último</button>
+    </div>
+
+    <div id="final" class="oculto">
+      <p>
+        y si algún día decides quedarte,<br>
+        ojalá sea porque encontraste en mí<br>
+        algo que te hizo sentir en paz,<br>
+        no en duda. 💫
+      </p>
+
+      <button onclick="playMusic()">🎵 tocar música</button>
+      <div class="firma">ESTUARDO R</div>
+    </div>
+  </div>
+
+  <script>
+    function mostrarPaso2(){
+      document.getElementById("paso2").style.display = "block";
+    }
+
+    function mostrarPaso3(){
+      document.getElementById("paso3").style.display = "block";
+    }
+
+    function mostrarPaso4(){
+      document.getElementById("paso4").style.display = "block";
+    }
+
+    function mostrarFinal(){
+      document.getElementById("final").style.display = "block";
+    }
+
+    function playMusic(){
+      const audio = document.getElementById("musica");
+      audio.play().catch(() => {});
+    }
+
+    const emojis = ["❣️","✨","💖","😻","🫶","💫","🌸","🥹","💕","😘","🌟","💘"];
+
+    function crearEmoji(){
+      const e = document.createElement("div");
+      e.className = "emoji";
+      e.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      e.style.left = Math.random() * 100 + "vw";
+      e.style.fontSize = (18 + Math.random() * 14) + "px";
+      e.style.animationDuration = (4 + Math.random() * 3) + "s";
+      document.body.appendChild(e);
+
+      setTimeout(() => {
+        e.remove();
+      }, 7000);
+    }
+
+    setInterval(crearEmoji, 500);
+  </script>
+
+</body>
+</html>
