@@ -110,8 +110,8 @@
 </head>
 <body>
 
-  <audio id="musica" loop>
-    <source src="musica.mp3" type="audio/mpeg">
+  <audio id="musica" loop preload="auto">
+  <source src="musica.mp3" type="audio/mpeg">
   </audio>
 
   <div class="box">
@@ -171,44 +171,50 @@
   </div>
 
   <script>
-    function mostrarPaso2(){
-      document.getElementById("paso2").style.display = "block";
-    }
+function mostrarPaso2(){
+  document.getElementById("paso2").style.display = "block";
+}
 
-    function mostrarPaso3(){
-      document.getElementById("paso3").style.display = "block";
-    }
+function mostrarPaso3(){
+  document.getElementById("paso3").style.display = "block";
+}
 
-    function mostrarPaso4(){
-      document.getElementById("paso4").style.display = "block";
-    }
+function mostrarPaso4(){
+  document.getElementById("paso4").style.display = "block";
+}
 
-    function mostrarFinal(){
-      document.getElementById("final").style.display = "block";
-    }
+function mostrarFinal(){
+  document.getElementById("final").style.display = "block";
+}
 
-    function playMusic(){
-      const audio = document.getElementById("musica");
-      audio.play().catch(() => {});
-    }
+function playMusic(){
+  const audio = document.getElementById("musica");
+  audio.volume = 1.0;
+  audio.play().then(() => {
+    console.log("musica reproduciendo");
+  }).catch((error) => {
+    alert("toca otra vez el botón de música 🎵");
+    console.log(error);
+  });
+}
 
-    const emojis = ["❣️","✨","💖","😻","🫶","💫","🌸","🥹","💕","😘","🌟","💘"];
+const emojis = ["❣️","✨","💖","😻","🫶","💫","🌸","🥹","💕","😘","🌟","💘"];
 
-    function crearEmoji(){
-      const e = document.createElement("div");
-      e.className = "emoji";
-      e.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-      e.style.left = Math.random() * 100 + "vw";
-      e.style.fontSize = (18 + Math.random() * 14) + "px";
-      e.style.animationDuration = (4 + Math.random() * 3) + "s";
-      document.body.appendChild(e);
+function crearEmoji(){
+  const e = document.createElement("div");
+  e.className = "emoji";
+  e.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+  e.style.left = Math.random() * 100 + "vw";
+  e.style.fontSize = (18 + Math.random() * 14) + "px";
+  e.style.animationDuration = (4 + Math.random() * 3) + "s";
+  document.body.appendChild(e);
 
-      setTimeout(() => {
-        e.remove();
-      }, 7000);
-    }
+  setTimeout(() => {
+    e.remove();
+  }, 7000);
+}
 
-    setInterval(crearEmoji, 500);
+setInterval(crearEmoji, 500);
   </script>
 
 </body>
