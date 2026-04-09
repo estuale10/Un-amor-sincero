@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un mensaje</title>
 
+<style>
+body{
+  min-height:100vh;
+  background:#0f1b3d;
+  font-family:Arial, sans-serif;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  overflow:hidden;
+}
+
+.box{
+  max-width:400px;
+  background:rgba(255,255,255,0.06);
+  padding:30px 20px;
+  border-radius:24px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.35);
+}
+
+p{
+  line-height:1.8;
+  font-size:1.1rem;
+}
+
+.firma{
+  margin-top:20px;
+  color:#cbd5e1;
+  font-size:0.9rem;
+}
+
+.emoji{
+  position:fixed;
+  bottom:-50px;
+  font-size:22px;
+  animation:flotar linear forwards;
+}
+
+@keyframes flotar{
+  0%{transform:translateY(0);opacity:1;}
+  100%{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<p>
+te quiero mucho, y demasiado.<br><br>
+no estoy seguro que veas este mensaje,<br>
+espero que sí 🥺❣️<br><br>
+te amo.
+</p>
+
+<div class="firma">ESTUARDO R</div>
+
+</div>
+
+<script>
+const emojis = ["❣️","✨","💖","😻","🫶","💫","🌸","🥹","💕","😘","🌟","💘"];
+
+function crearEmoji(){
+  const e = document.createElement("div");
+  e.className="emoji";
+  e.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+  e.style.left = Math.random()*100+"vw";
+  e.style.fontSize = (18+Math.random()*14)+"px";
+  e.style.animationDuration = (4+Math.random()*3)+"s";
+  document.body.appendChild(e);
+
+  setTimeout(()=>{e.remove();},7000);
+}
+
+setInterval(crearEmoji,500);
+</script>
+
+</body>
+</html>
